@@ -1,15 +1,13 @@
-import styles from './styles/index.module.scss';
+import ClassicGame from './../components/ClassicGame';
 
 function ClassicPage() {
   return (
-    <div>
-      CLASSIC!
-    </div>
+    <ClassicGame />
   )
 }
 
 export const metadata = {
-  title: 'Redux Toolkit',
+  title: 'Classic Game',
 }
 
 

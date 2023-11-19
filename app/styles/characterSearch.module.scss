@@ -1,0 +1,37 @@
+.characterSearch{
+	position: fixed;
+	top: 120px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.characterInput{
+  padding: 16px;
+  text-decoration: none;
+  color: #c2c2c4;
+  background-color: #111113;
+  border: solid 1px #c2c2c2;
+  transition: all 0.25s ease-out;
+}
+
+.characterCollection{
+  padding: 16px;
+  text-decoration: none;
+  color: #c2c2c4;
+  background-color: #111113;
+  border: solid 1px #c2c2c2;
+  transition: all 0.25s ease-out;
+}
+
+.characterOptionDiv{
+	display: flex;
+  align-items: center;
+}
+
+.characterOption img{
+	max-width: 60px;
+	max-height: 60px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-right: 16px;
+}
