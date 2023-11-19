@@ -1,0 +1,59 @@
+////
+//// FONTS
+////
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap');
+
+$font-family-highlight: 'Quicksand', sans-serif;
+$font-family-base: 'Quicksand', sans-serif;
+$font-family-open: 'Open Sans', sans-serif;
+
+body{
+  font-family: 'Quicksand', sans-serif;
+  margin: 0px;
+  padding: 8px;
+}
+
+#main{
+  background: #f1f2f7;  
+  height: 100vh;
+  width: 95%;
+  padding: 16px 8px;
+  border-radius: 12px;
+}
+
+.opensans{
+  font-family: 'Open Sans', sans-serif; 
+}
+
+////
+//// MIXINS
+////
+
+$break-small-handheld: 360px;
+$break-small: 720px;
+$break-large: 1024px;
+$break-ultra-large: 1800px;
+$break-4k: 2300px;
+
+@mixin respond-to($media) {
+  @if $media == small-handhelds {
+    @media only screen and (max-width: $break-small-handheld) { @content; }
+  }
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large + 1) and (max-width: $break-ultra-large - 1) { @content; }
+  }
+  @else if $media == ultra-wide-screens {
+    @media only screen and (min-width: $break-ultra-large + 1) and (max-width: $break-4k - 1) { @content; }
+  }
+  @else if $media == 4k-screens {
+    @media only screen and (min-width: $break-4k) { @content; }
+  }
+}
