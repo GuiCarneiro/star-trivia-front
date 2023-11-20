@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/characterSearch.module.scss';
 
-
-
 function CharacterSearch(props){
   const [inputState, setInput] = useState('');
 
@@ -18,7 +16,7 @@ function CharacterSearch(props){
       ></input>
 
       {
-        inputState.length > 0 &&
+        inputState.length > 1 &&
         (
           <div className={styles.characterCollection}>
             { 

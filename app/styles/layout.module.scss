@@ -1,6 +1,5 @@
 .backgroundHtml{
-  background: url(/bg.png) no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/bg.png) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
-  overflow: hidden;
 }
