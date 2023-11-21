@@ -8,7 +8,7 @@ import WonCard from './WonCard';
 import ShareWon from './ShareWon';
 import PastChallenge from './PastChallenge';
 
-function ClassicGame(){
+function ClassicGame(props){
   // 0 - Loading
   // 1 - Game Running
   // 2 - Game Ended
@@ -79,6 +79,7 @@ function ClassicGame(){
 
     if(playerData !== null){
       setPlayer(JSON.parse(playerData));
+      window.postMessage({event: 'changeInPlayer', streak: playerData.streak});
     };
   }
 
@@ -87,10 +88,24 @@ function ClassicGame(){
     if(guess.id == challenge.attributes.character_id){
       setTimeout(() => {
         let tempPlayer = {... player};
+        tempPlayer.streak = checkForLastStreak();
         tempPlayer.lastWinClassic = new Date().toJSON().slice(0, 10);
+
         setPlayer(tempPlayer);
         savePlayer(tempPlayer);
       }, 750)
+    }
+  }
+
+  function checkForLastStreak(){    
+    let yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    if(player.lastWinClassic == yesterday.toJSON().slice(0, 10)){
+      return (player.streak ? player.streak + 1 : 1)
+    }
+    else{
+      return 1
     }
   }
 
@@ -117,6 +132,7 @@ function ClassicGame(){
   // Player Actions
   function savePlayer(data){
     const playerToLocal = JSON.stringify(data);
+    window.postMessage({event: 'changeInPlayer', streak: data.streak});
     localStorage.setItem("playerInLocal", playerToLocal);
   }
 
