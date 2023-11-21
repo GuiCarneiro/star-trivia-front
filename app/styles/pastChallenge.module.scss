@@ -1,0 +1,65 @@
+.pastGame{
+  max-width: 312px;
+  margin: 16px auto;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+
+  border-radius: 16px;
+  background: rgba(26, 23, 25, 0.70);
+  backdrop-filter: blur(8px);
+
+  h2{
+    margin: 0px;
+    color: #FFF;
+    text-align: center;
+    font-family: Dashboard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 115%; /* 20.7px */
+    text-transform: uppercase;
+  }
+}
+
+.pastGameCharDiv{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pastGameCharPortrait{
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  border-radius: 8px;
+  border: 2px solid #A881FF;
+  background: lightgray 50% / cover no-repeat, #1A1719;
+
+  backdrop-filter: blur(8px);
+  margin-right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    width: 56px;
+  }  
+}
+
+.pastgameCharText{
+  color: #A881FF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 20px */
+}
+

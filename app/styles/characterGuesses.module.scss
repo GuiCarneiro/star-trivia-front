@@ -1,45 +1,92 @@
 .characterGuessColumn{
-  max-width: 500px;
-  margin: 32px auto 0px;
+  max-width: 312px;
+  margin: 24px auto 24px;
+
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+
+  border-radius: 16px;
+  background: rgba(26, 23, 25, 0.70);
+  backdrop-filter: blur(8px);
+
+  h2{
+    color: #FFF;
+    text-align: center;
+    font-family: Dashboard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 18px */
+    text-transform: uppercase;
+
+    margin: 0px auto 0px;
+  }
 }
 
 .characterGuessHeader{
   display: flex;
+  margin-bottom: 8px;
 
   div{
     width: 25%;
-    color: white;
-    font-weight: bold;
+    color: #FFF;
     text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 10px */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
+.characterGuessBlock{
+  width: 100%;
+}
+
 .guessItem{
-  display: flex;
-  margin-top: 32px;
+  display: flex;  
+  justify-content: space-around;
+  align-items: center;
 
-  img{
-    max-width: 60px;
-    max-height: 60px;
-  }
+  .guessItemAnswerPortrait{    
+    height: 54px;
+    width: 54px;
+    overflow: hidden;
+    border-radius: 16px;    
+    border: 1px solid rgba(255, 255, 255, 0.50);
+    background: lightgray 50% / cover no-repeat, #1A1719;
+    backdrop-filter: blur(8px);
 
-  .guessItemAnswer{
-    height: 60px;
-    width: 25%;
-    color: white;
-    text-align: center;
-    color: white;
-
-    display: flex;    
+    display: flex;
     justify-content: center;
     align-items: center;
 
+    img{
+      width: 52px;
+    }  
+  }
+
+  .guessItemAnswer{
+    height: 54px;
+    width: 54px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(8px);
+
     &[data-green]{
-      background-color: green;
+      background-color: #4AFF46;
     }
 
     &[data-red]{
-      background-color: red;
+      background-color: #FF4741;
     }
   }
 

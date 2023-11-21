@@ -1,5 +1,5 @@
 /* Components */
-import { Nav } from './components/Nav'
+import { Nav } from './components/Nav';
 
 /* Instruments */
 import styles from './styles/layout.module.scss'

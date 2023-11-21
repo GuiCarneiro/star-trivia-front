@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 import * as strapiAPI from '../api/strapiAPI';
 import CharacterSearch from './CharacterSearch';
 import CharacterGuesses from './CharacterGuesses';
+import WonCard from './WonCard';
+import ShareWon from './ShareWon';
+import PastChallenge from './PastChallenge';
 
 function ClassicGame(){
   // 0 - Loading
@@ -13,6 +16,7 @@ function ClassicGame(){
   const [gameState, setGameState] = useState(0);
   const [characters, setCharacters] = useState([]);
   const [challenge, setChallenge] = useState({});
+  const [pastChallenge, setPastChallenge] = useState({});
   const [guesses, setGuesses] = useState([]);
   const [player, setPlayer] = useState({});
 
@@ -56,6 +60,9 @@ function ClassicGame(){
 
     let challengeResp = await strapiAPI.getTodayChallenge();
     setChallenge(challengeResp.data[0]);
+
+    let pastChallengeResp = await strapiAPI.getYesterdayChallenge();
+    setPastChallenge(pastChallengeResp.data[0]);
     setGameState(1);
   }
 
@@ -128,15 +135,30 @@ function ClassicGame(){
         (
           <>
             <CharacterSearch 
-              options={characters.filter((c) => {
+              options={
+                characters.filter((c) => {
                   let pluckId = guesses.map(i => i.id);
                   return !pluckId.includes(c.id);
                 }
               )}
               onSelect={selectCharacter}
-            />         
+            />            
           </>
-        )        
+        )
+      }
+
+      {
+        (gameState == 2) && (
+          <>
+            <WonCard
+              guesses={guesses}
+            />
+
+            <ShareWon            
+              guesses={guesses}
+            />
+          </>
+        )
       }
 
       {(gameState == 1 || gameState == 2) &&
@@ -148,12 +170,21 @@ function ClassicGame(){
                 <CharacterGuesses 
                   guesses={guesses}
                   answer={characters.filter(c => c.id == challenge.attributes.character_id)}
+                  gameState={gameState}
                 />
               )
             }            
           </>
         )        
-      }    
+      }
+
+      {
+        (gameState) == 1 && (
+          <PastChallenge
+            answer={characters.filter(c => c.id == pastChallenge.attributes.character_id)}
+          />
+        )
+      }
     </div>
   )
 }

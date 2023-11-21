@@ -11,22 +11,34 @@ function CharacterSearch(props){
 
   return (
     <div className={styles.characterSearch}>
-      <input id='search-char-input' className={styles.characterInput} onKeyUp={changeInputState}
-        placeholder="Type a characters name..."
-      ></input>
+      <h1>
+        Guess todays HSR character
+      </h1>
+
+      <p>
+        Enter any character to get started.
+      </p>
+
+      <div className={styles.characterInputDiv}>
+        <input id='search-char-input' className={styles.characterInput} onKeyUp={changeInputState}
+        placeholder="Enter a characters name..."
+        ></input>
+
+        <img src="/gray-arrow.svg" />
+      </div>
 
       {
-        inputState.length > 1 &&
+        inputState.length > 0 &&
         (
           <div className={styles.characterCollection}>
             { 
               props.options.filter(
-                option => option.attributes.name.toLowerCase().includes(inputState.toLowerCase())
+                option => option.attributes.name.toLowerCase().startsWith(inputState.toLowerCase())
               )
               .map((item, index) => {
               return (
                 <div className={styles.characterOption}
-                  key={index}
+                  key={item.id}
                   onClick={() => {
                     props.onSelect(item);
                     setInput('');
@@ -34,8 +46,10 @@ function CharacterSearch(props){
                   }}
                 > 
                   <div className={styles.characterOptionDiv}>
-                    <img src={'https://strapi-4frq.onrender.com' + item.attributes.image_profile.data.attributes.url}/>
-                    <div>
+                    <div className={styles.characterOptionPortrait}>
+                      <img src={'https://strapi-4frq.onrender.com' + item.attributes.image_profile.data.attributes.url}/>
+                    </div>
+                    <div className={styles.characterOptionText}>
                       {item.attributes.name}
                     </div>
                   </div>

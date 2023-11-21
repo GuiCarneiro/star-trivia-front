@@ -1,0 +1,37 @@
+.nav{
+  display: flex;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.navHeader{
+  color: #FFF;
+  text-align: center;
+  font-family: Dashboard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 32px */
+}
+
+.subNav{
+  display: flex;
+  width: 312px;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin: 16px auto;
+  justify-content: center;
+}
+
+.subNavMenu{
+  cursor: pointer;
+  padding: 0px;
+  background: transparent;
+  border: none;
+  background: rgba(26, 23, 25, 0.50);
+  border-radius: 50%;
+}

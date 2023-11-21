@@ -1,40 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles/index.module.scss';
-import Link from 'next/link';
+import ClassicGame from './components/ClassicGame.jsx';
+import Nav from './components/Nav.jsx';
+import Footer from './components/Footer.jsx';
 
 function IndexPage() {
   return (
-    <div className={styles.mainMenu}>
-      <Link
-        href="/classic"
-        className={styles.menuLink}
-      > 
-        <div className={styles.menuButton}>
-          <div className={styles.menuTitle}>
-            Classic
-          </div>
-
-          <div className={styles.menuDescription}>
-            Get clues and guess a character
-          </div>
-        </div>
-      </Link>
-
-      <Link
-        href="/quotes"
-        className={styles.menuLink}
-      > 
-        <div className={styles.menuButton}>
-          <div className={styles.menuTitle}>
-            Quotes
-          </div>
-
-          <div className={styles.menuDescription}>
-            Guess with in-game quotes
-          </div>
-        </div>
-      </Link>
-    </div>
+    <>
+      <Nav/>
+      <ClassicGame />
+      <Footer/>
+    </>
   )
 }
 

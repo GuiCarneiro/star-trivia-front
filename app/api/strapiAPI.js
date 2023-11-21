@@ -50,3 +50,31 @@ export const getTodayChallenge = () => {
     });
   });
 }
+
+export const getYesterdayChallenge = () => {
+  let date = new Date();
+  date.setDate(date.getDate() - 1);
+
+  var options = {
+    method: 'get',
+    params: {},
+    headers: {
+      'Content-Type': 'application/json',      
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
+    },
+    httpsAgent: new https.Agent({
+      rejectUnauthorized: false
+    }),
+    json: true
+  };
+
+  return new Promise((resolve, reject) => {
+    axios(`/api/classic-challenges?filters[$and][0][date][$eq]=${date.toJSON().slice(0, 10)}`, options)
+    .then(response => {
+      resolve(response['data']);
+    })
+    .catch(error => {
+      reject(error);
+    });
+  });
+}
