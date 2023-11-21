@@ -1,0 +1,100 @@
+.shareWon{
+  max-width: 312px;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  margin: 16px auto;
+
+  border-radius: 16px;
+  background: rgba(26, 23, 25, 0.70);
+  backdrop-filter: blur(8px);
+
+  h2{
+    margin: 0px;
+    color: #FFF;
+    text-align: center;
+    font-family: Dashboard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 18px */
+    text-transform: uppercase;
+  }
+
+  p{
+    margin: 0px;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    white-space: pre-line
+  }
+}
+
+.shareButtons{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;  
+  justify-content: center;
+}
+
+.shareCopyButton{
+  cursor: pointer;
+  display: flex;
+  width: 136px;
+  height: 36px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #A881FF;
+  border: none;
+
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; 
+}
+
+.shareTwitterButton{
+  cursor: pointer;
+  display: flex;
+  width: 136px;
+  height: 36px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #1DA1F2;
+  border: none;
+
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; 
+}
+
+.copyStatus{
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}

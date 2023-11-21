@@ -1,0 +1,101 @@
+.wonCard{
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 16px;
+  background: rgba(26, 23, 25, 0.70);
+  backdrop-filter: blur(8px);
+  max-width: 312px;
+  margin: 0px auto;
+
+  h2{
+    align-self: stretch;
+    color: #A881FF;
+    text-align: center;
+    font-family: Dashboard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 24px */
+    text-transform: uppercase;
+    margin: 0px;
+  }
+}
+
+.gameRightGuess{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gameCharPortrait{  
+  height: 56px;
+  width: 56px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  border-radius: 16px;
+  border: 1px solid #A881FF;
+  background: lightgray 50% / cover no-repeat, #1A1719;
+
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    width: 52px;
+  }
+}
+
+.gameCharText{  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+
+  h3{
+    color: #A881FF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; 
+    margin: 0px;
+  }
+
+  p{
+    margin: 0px;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
+}
+
+.countDownBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+
+  p{
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    margin: 0px;
+  }
+}

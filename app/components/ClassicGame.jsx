@@ -35,24 +35,11 @@ function ClassicGame(){
       updateTimePlayed();
       clearGuesses();
     }
-
-    if(player.lastWinClassic == new Date().toJSON().slice(0, 10)){
-      setGameState(2);
-    }
   }, [player]);
 
-
   useEffect(() => {
-    if(gameState != 0 && characters.length == 0){
-      setGameState(0);
-      return
-    }
-
-    if(gameState != 2 && player.lastWinClassic == new Date().toJSON().slice(0, 10)){
-      setGameState(2);
-      return
-    }
-  }, [gameState]);
+    updateGameState();
+  }, [player, guesses, characters, challenge, pastChallenge]);
 
   async function getGameData(){
     let charactersResp = await strapiAPI.getCharacters();
@@ -63,7 +50,22 @@ function ClassicGame(){
 
     let pastChallengeResp = await strapiAPI.getYesterdayChallenge();
     setPastChallenge(pastChallengeResp.data[0]);
-    setGameState(1);
+  }
+
+  function updateGameState(){
+    let baseState = 0;
+
+    if(characters.length > 0 && challenge.id != null && pastChallenge.id != null){
+      baseState = 1;
+    }
+
+    if(characters.length > 0 && challenge.id != null  && pastChallenge.id != null && player.lastWinClassic == new Date().toJSON().slice(0, 10)){
+      baseState = 2;
+    }
+
+    if(baseState != gameState){
+      setGameState(baseState);
+    }
   }
 
   function loadGuessesData(){
@@ -86,8 +88,6 @@ function ClassicGame(){
       setTimeout(() => {
         let tempPlayer = {... player};
         tempPlayer.lastWinClassic = new Date().toJSON().slice(0, 10);
-
-        setGameState(2);
         setPlayer(tempPlayer);
         savePlayer(tempPlayer);
       }, 750)
@@ -148,13 +148,17 @@ function ClassicGame(){
       }
 
       {
-        (gameState == 2) && (
+        (gameState == 2) &&
+        (guesses.length > 0 && characters.length > 0 && challenge.id != null) &&
+        (
           <>
             <WonCard
-              guesses={guesses}
+              answer={characters.filter(c => c.id == challenge.attributes.character_id)}
+              guessesCount={guesses.length}
             />
 
             <ShareWon            
+              answer={characters.filter(c => c.id == challenge.attributes.character_id)}
               guesses={guesses}
             />
           </>
