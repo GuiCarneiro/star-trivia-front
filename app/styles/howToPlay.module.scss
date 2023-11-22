@@ -1,0 +1,160 @@
+.howToPlayModal{
+  position: fixed;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  max-height: 90vh;
+
+  display: flex;
+  width: 328px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  border-radius: 16px;
+  background: rgba(26, 23, 25, 0.70);
+  backdrop-filter: blur(8px);
+  overflow-y: scroll;
+  z-index: 1;
+
+  &[data-open]{
+    top: 50%;
+  } 
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(217, 217, 217, 0.32);    
+    border-radius: 1000px;    
+    border: 6px solid rgba(217, 217, 217, 0.32);
+    background-clip: content-box;
+  }
+}
+
+.modalClose{
+  transition: all 0.5s ease;
+  cursor: pointer;
+  background: transparent;
+  position: fixed;
+  right: calc(50% - 196px);
+  top: 101vh;
+  border: none;
+  z-index: 2;
+
+  &[data-open]{
+    top: 0;
+  } 
+}
+
+.modalHeader{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+
+  color: #FFF;
+  font-family: Space Grotesk;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 22px */
+  text-transform: uppercase;
+}
+
+.howToPlayModal{
+  p{
+    margin: 0px;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    opacity: 0.8;
+
+    span.green{
+      color: #4AFF46;
+    }
+
+    span.red{
+      color: #FF4741;
+    }
+  }
+
+  h2{
+    margin: 0px;
+    color: #FFF;
+    font-family: Space Grotesk;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 22px */
+    text-transform: uppercase;
+    align-self: stretch;
+  }
+
+  h3{
+    margin: 0px;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 16px */
+    align-self: stretch;
+    opacity: 0.8;
+  }
+
+  .goodLuck{
+    color: #FFF;
+    align-self: stretch;
+    text-align: center;
+    font-family: Space Grotesk;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  .block{
+    width: 100%;
+  }
+}
+
+.howToPlayIllustration{
+  width: 100%;
+}
+
+.countDownBlock{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.nextCharIn{
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.divider{  
+  min-height: 1px;
+  flex: 1 0 0;
+  align-self: stretch;
+  opacity: 0.16;
+  background: #FFF;
+}

@@ -8,7 +8,7 @@ function IndexPage() {
   return (
     <>
       <Nav/>
-      <ClassicGame />
+      <ClassicGame/>
       <Footer/>
     </>
   )

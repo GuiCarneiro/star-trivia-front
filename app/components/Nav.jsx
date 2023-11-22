@@ -24,6 +24,14 @@ function Nav(){
     }
   }
 
+  function openModal(){
+    window.postMessage({event: 'changeInModal', modalState: true});
+  }
+
+  function openStreak(){
+    window.postMessage({event: 'changeInModalStreak', modalState: true});
+  }
+
   return (
     <>
       <nav className={styles.nav}>
@@ -32,7 +40,7 @@ function Nav(){
         </div>
       </nav>
       <div className={styles.subNav}>
-        <button className={styles.subNavMenu}>
+        <button className={styles.subNavMenu} onClick={openStreak}>
           <img src="/streak.svg"/>
 
           { 
@@ -45,7 +53,7 @@ function Nav(){
           
         </button>
         
-        <button className={styles.subNavMenu}>
+        <button className={styles.subNavMenu} onClick={openModal}>
           <img src="/help.svg"/>
         </button>
       </div>

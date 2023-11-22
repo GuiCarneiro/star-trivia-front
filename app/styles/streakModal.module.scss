@@ -1,0 +1,76 @@
+.streakModal{
+  position: fixed;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  max-height: 90vh;
+
+  display: flex;
+  width: 328px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  border-radius: 16px;
+  background: rgba(26, 23, 25, 0.70);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+
+  &[data-open]{
+    top: 40%;
+  } 
+  p{
+    margin: 0px;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    opacity: 0.8;
+  }
+
+  .streakIllustration{
+    max-width: 100px;
+  }
+}
+
+.modalClose{
+  transition: all 0.5s ease;
+  cursor: pointer;
+  background: transparent;
+  position: fixed;
+  right: calc(50% - 196px);
+  top: 101vh;
+  border: none;
+  z-index: 2;
+
+  &[data-open]{
+    top: 15%;
+  } 
+}
+
+.modalHeader{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+
+  color: #FFF;
+  font-family: Space Grotesk;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%; /* 22px */
+  text-transform: uppercase;
+}
+
+.divider{  
+  min-height: 1px;
+  flex: 1 0 0;
+  align-self: stretch;
+  opacity: 0.16;
+  background: #FFF;
+}

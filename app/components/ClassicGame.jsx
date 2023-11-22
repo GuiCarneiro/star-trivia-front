@@ -7,6 +7,12 @@ import CharacterGuesses from './CharacterGuesses';
 import WonCard from './WonCard';
 import ShareWon from './ShareWon';
 import PastChallenge from './PastChallenge';
+import HowToPlay from './HowToPlay';
+import StreakModal from './StreakModal';
+import Lottie from 'react-lottie';
+import * as loadingData from '../animations/loading.json';
+import * as confettiData from '../animations/confetti.json';
+import styles from '../styles/classicGame.module.scss';
 
 function ClassicGame(props){
   // 0 - Loading
@@ -19,6 +25,7 @@ function ClassicGame(props){
   const [pastChallenge, setPastChallenge] = useState({});
   const [guesses, setGuesses] = useState([]);
   const [player, setPlayer] = useState({});
+  const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     getGameData();
@@ -87,12 +94,20 @@ function ClassicGame(props){
   function checkWin(guess){
     if(guess.id == challenge.attributes.character_id){
       setTimeout(() => {
+
+        // Adding victories data to temporary player
         let tempPlayer = {... player};
         tempPlayer.streak = checkForLastStreak();
         tempPlayer.lastWinClassic = new Date().toJSON().slice(0, 10);
 
+        // Updating player's data
         setPlayer(tempPlayer);
         savePlayer(tempPlayer);
+
+        // Showing confetti for 3 seconds
+        setShowConfetti(true);
+        setTimeout(() => {setShowConfetti(false)}, 3000);
+        
       }, 750)
     }
   }
@@ -147,6 +162,25 @@ function ClassicGame(props){
 
   return (
     <div>
+
+      {gameState == 0 && 
+        (
+          <div className={styles.loadingBox}>
+            <Lottie options={{
+                loop: true,
+                autoplay: true,               
+                animationData: loadingData,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+                }
+              }}
+              height={224}
+              width={224}
+            />
+          </div>
+        )
+      }
+
       {gameState == 1 &&
         (
           <>
@@ -205,6 +239,25 @@ function ClassicGame(props){
           />
         )
       }
+
+      { 
+        showConfetti && (
+          <div className={styles.confettiBox}>
+            <Lottie options={{
+                loop: true,
+                autoplay: true,               
+                animationData: confettiData,
+                rendererSettings: {
+                  preserveAspectRatio: 'xMidYMid slice'
+                }
+              }}
+            />
+          </div>
+        )
+      }
+
+      <HowToPlay />
+      <StreakModal />
     </div>
   )
 }

@@ -6,7 +6,7 @@ function WonCard(props){
   return (
     <div className={styles.wonCard}>
       <h2>
-        Great work! You’ve guessed right
+        <span>Great work!</span> You’ve guessed right
       </h2>
       <div className={styles.gameRightGuess}>
         <div className={styles.gameCharPortrait}>

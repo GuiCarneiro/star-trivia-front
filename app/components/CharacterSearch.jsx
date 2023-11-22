@@ -12,7 +12,7 @@ function CharacterSearch(props){
   return (
     <div className={styles.characterSearch}>
       <h1>
-        Guess todays HSR character
+        Guess <span>todays</span> HSR character
       </h1>
 
       <p>

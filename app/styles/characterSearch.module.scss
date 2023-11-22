@@ -18,13 +18,17 @@
   h1{
     color: #A881FF;
     text-align: center;
-    font-family: Dashboard;
-    font-size: 32px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 100%; /* 32px */
+    font-weight: 700;
+    line-height: 115%; /* 41.4px */
     text-transform: uppercase;
     margin: 0px;
+
+    span{
+      color: #FFFFFF;
+    }
   }
 
   p{
