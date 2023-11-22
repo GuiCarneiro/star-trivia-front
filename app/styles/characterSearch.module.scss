@@ -26,8 +26,12 @@
     text-transform: uppercase;
     margin: 0px;
 
-    span{
+    span.white{
       color: #FFFFFF;
+    }
+
+    span.smaller{
+      font-size: 32px;
     }
   }
 
@@ -46,6 +50,7 @@
 
 .characterInputDiv{
   position: relative;
+  z-index: 1;
 
   img{
     position: absolute;    
@@ -63,7 +68,7 @@
   background-color: transparent;
   border: solid 1px #c2c2c2;
   transition: all 0.5s ease;
-  border: 2px solid rgba(255, 255, 255, 0.80);
+  border: 1px solid rgba(255, 255, 255, 0.80);
   border-radius: 1000px;
   outline: 0; 
   font-weight: 600;
@@ -73,6 +78,10 @@
   }
 
   &:hover, &:focus{    
+    background-color: #1A1719;
+  }
+
+  &:not(:placeholder-shown) {
     background-color: #1A1719;
   }
 }
@@ -96,7 +105,6 @@
 }
 
 .characterCollection{
-  padding: 0px 16px;
   text-decoration: none;
   color: #c2c2c4;
   background-color: #1A1719;
@@ -105,7 +113,7 @@
   min-width: 180px;
   border-radius: 8px;
   position: absolute;
-  top: 90%;
+  top: 92%;
 
   max-height: 240px;
   overflow-y: scroll;
@@ -130,12 +138,17 @@
   cursor: pointer;
 	display: flex;
   align-items: center;
-  margin: 8px 0px;
+  transition: all 0.5s ease;
+  padding: 8px 16px;
+
+  &:hover{
+    background: rgba(255, 255, 255, 0.04);
+  }
 }
 
 .characterOptionPortrait{
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   overflow: hidden;
   border-radius: 50%;
 

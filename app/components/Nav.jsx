@@ -32,11 +32,11 @@ function Nav(){
     window.postMessage({event: 'changeInModalStreak', modalState: true});
   }
 
-  return (
+  return(
     <>
       <nav className={styles.nav}>
         <div className={styles.navHeader}>
-          WORDLE HSR
+          <img src="./logoHeader.svg"/>
         </div>
       </nav>
       <div className={styles.subNav}>

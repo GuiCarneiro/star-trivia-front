@@ -12,7 +12,8 @@ function CharacterSearch(props){
   return (
     <div className={styles.characterSearch}>
       <h1>
-        Guess <span>todays</span> HSR character
+        Guess <span className={styles.white}>todays</span><br/>
+        <span className={styles.smaller}>HSR character</span>
       </h1>
 
       <p>
@@ -23,7 +24,6 @@ function CharacterSearch(props){
         <input id='search-char-input' className={styles.characterInput} onKeyUp={changeInputState}
         placeholder="Enter a characters name..."
         ></input>
-
         <img src="/gray-arrow.svg" />
       </div>
 

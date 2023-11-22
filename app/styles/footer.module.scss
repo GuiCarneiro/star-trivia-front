@@ -1,6 +1,12 @@
 .footerDiv{
   margin: 16px auto 40px;
   max-width: 312px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
 }
 
 .footerHeader{
@@ -30,6 +36,11 @@
 .footerLinks{
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 6px;
   justify-content: center;
+
+  img{
+    height: 32px;
+    width: 32px;
+  }
 }

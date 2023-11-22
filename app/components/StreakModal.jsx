@@ -23,6 +23,7 @@ function StreakModal(){
 
   return (
     <>
+      <div className={styles.modalBackground} data-open={isOpen ? true : null}/>
       <button className={styles.modalClose} 
         onClick={() => {setIsOpen(false)}}
         data-open={isOpen ? true : null}

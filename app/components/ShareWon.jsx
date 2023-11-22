@@ -13,7 +13,7 @@ function ShareWon(props){
       tempGuesses = props.guesses.slice(props.guesses.length - 5, props.guesses.length);
     }
     else{
-      tempGuesses = props.guesses;
+      tempGuesses = props.guesses.slice(0, props.guesses.length);
     }
 
     tempGuesses.reverse().forEach((guess) => {
@@ -29,12 +29,13 @@ function ShareWon(props){
       text = text + '\n';
     }
 
-    text = text + 'www.hsrodle.com'
+    text = text + 'hsrdle.net'
     return text;
   }
 
   async function copyText(){
-    var copyText = formatGuessesShare();
+    let initialData = `I found the #HSRdle character in ${props.guesses.length} ${props.guesses.length > 1 ? 'tries' : 'try'} 🔥\n`;
+    var copyText = initialData + formatGuessesShare();
 
     try {
       await navigator.clipboard.writeText(copyText);
@@ -50,7 +51,7 @@ function ShareWon(props){
 
   function shareTwitter(){
     let baseUrl = 'https://twitter.com/intent/tweet?text=';
-    let initialData = `I found the HSR #Woordle character in ${props.guesses.length} ${props.guesses.length > 1 ? 'tries' : 'try'} 🔥\n`;
+    let initialData = `I found the #HSRdle character in ${props.guesses.length} ${props.guesses.length > 1 ? 'tries' : 'try'} 🔥\n`;
     let baseData = formatGuessesShare();
 
     let fullURL = baseUrl + encodeURIComponent(initialData + baseData);
@@ -61,7 +62,7 @@ function ShareWon(props){
   return (
     <div className={styles.shareWon}>
       <h2>
-        I found the HSR #Woordle character in {props.guesses.length} {props.guesses.length > 1 ? 'tries' : 'try'} 🔥
+        I found the #HSRdle character in {props.guesses.length} {props.guesses.length > 1 ? 'tries' : 'try'} 🔥
       </h2>
 
       <p id="guess-share">

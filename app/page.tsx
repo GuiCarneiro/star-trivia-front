@@ -15,7 +15,8 @@ function IndexPage() {
 }
 
 export const metadata = {
-  title: 'Redux Toolkit',
+  title: 'HSRdle',
+  description: 'Daily guess a Honkai: Star Rail character with clues ...'
 }
 
 

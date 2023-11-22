@@ -1,6 +1,5 @@
 /* Instruments */
 import styles from './styles/layout.module.scss'
-import './styles/globals.scss'
 
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
