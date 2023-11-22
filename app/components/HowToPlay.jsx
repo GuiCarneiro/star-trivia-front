@@ -69,7 +69,7 @@ function HowToPlay(){
             Paths
           </h3>
           <p>
-            Destruction, The Hunt, Erudition, Harmony, Nihility, Preservation, Abundance.
+            Destruction, The Hunt, Erudition, Harmony, Nihility, Preservation and Abundance.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ function HowToPlay(){
             Elements
           </h3>
           <p>
-            Physical, Fire, Ice, Lightning, Wind, Quantum, Imaginary.
+            Physical, Fire, Ice, Lightning, Wind, Quantum and Imaginary.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ function HowToPlay(){
             Origins
           </h3>
           <p>
-            Belobog, Xianzhou, Astral Express ...
+            Belobog, Xianzhou, Knights of Beauty, Intelligentsia Guild, Pteruges-V, Punklorde and Astral Express.
           </p>
         </div>
 

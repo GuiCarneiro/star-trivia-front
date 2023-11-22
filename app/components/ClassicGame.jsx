@@ -13,6 +13,8 @@ import Lottie from 'react-lottie';
 import * as loadingData from '../animations/loading.json';
 import * as confettiData from '../animations/confetti.json';
 import styles from '../styles/classicGame.module.scss';
+import ReactGA from 'react-ga';
+import amplitude from 'amplitude-js';
 
 function ClassicGame(props){
   // 0 - Loading
@@ -26,11 +28,15 @@ function ClassicGame(props){
   const [guesses, setGuesses] = useState([]);
   const [player, setPlayer] = useState({});
   const [showConfetti, setShowConfetti] = useState(false);
+  var amplitudeInstance = amplitude.getInstance().init('96bc3a35921a2e1d2d4adc893e7a5217');
+
 
   useEffect(() => {
     getGameData();
     loadGuessesData();
     loadPlayerData();
+    loadGoogleAnalytics();
+    amplitude.getInstance().logEvent('user-access');
   }, []);
 
   useEffect(() => {
@@ -47,6 +53,11 @@ function ClassicGame(props){
   useEffect(() => {
     updateGameState();
   }, [player, guesses, characters, challenge, pastChallenge]);
+
+  function loadGoogleAnalytics(){
+    ReactGA.initialize('G-BHZK09HXPZ');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
 
   async function getGameData(){
     let charactersResp = await strapiAPI.getCharacters();
@@ -100,6 +111,9 @@ function ClassicGame(props){
         tempPlayer.streak = checkForLastStreak();
         tempPlayer.lastWinClassic = new Date().toJSON().slice(0, 10);
 
+        // Send Data to Amplitude
+        amplitude.getInstance().logEvent('user-won');
+
         // Updating player's data
         setPlayer(tempPlayer);
         savePlayer(tempPlayer);
@@ -130,6 +144,7 @@ function ClassicGame(props){
     tempGuesses.push(guess);
     setGuesses(tempGuesses);
     saveGuesses(tempGuesses);
+    amplitude.getInstance().logEvent('user-guessed');
     checkWin(guess);
   }
 

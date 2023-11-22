@@ -14,11 +14,11 @@
 
 .howToPlayModal{
   position: fixed;
-  top: 150%;
+  top: 200%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease;
-  max-height: 90vh;
+  max-height: 80vh;
 
   display: flex;
   width: 328px;
@@ -64,7 +64,7 @@
   z-index: 2;
 
   &[data-open]{
-    top: 0;
+    top: 5%;
   } 
 }
 

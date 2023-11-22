@@ -1,9 +1,11 @@
 'use client'
 import styles from '../styles/shareWon.module.scss';
 import React, { useState, useEffect } from 'react';
+import amplitude from 'amplitude-js';
 
 function ShareWon(props){
   const [copyStatus, setCopy] = useState(0);
+  var amplitudeInstance = amplitude.getInstance().init('96bc3a35921a2e1d2d4adc893e7a5217');
 
   function formatGuessesShare(){
     let text = '';
@@ -39,6 +41,7 @@ function ShareWon(props){
 
     try {
       await navigator.clipboard.writeText(copyText);
+      amplitude.getInstance().logEvent('user-copied-won');
     } catch (err) {
       console.error('Failed to copy: ', err);
     }
@@ -56,6 +59,7 @@ function ShareWon(props){
 
     let fullURL = baseUrl + encodeURIComponent(initialData + baseData);
 
+    amplitude.getInstance().logEvent('user-twitted-won');
     window.open(fullURL, '_blank').focus();
   }
 

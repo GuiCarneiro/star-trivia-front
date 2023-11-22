@@ -37,7 +37,7 @@ function StreakModal(){
         </div>
 
         <p>
-          Whenever you come back and play HSR Wordle you add to your streak.
+          Whenever you come back and play HSRdle you add to your streak.
         </p>
 
         <p>
