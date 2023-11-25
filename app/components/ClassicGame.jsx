@@ -33,8 +33,7 @@ function ClassicGame(props){
 
   useEffect(() => {
     getGameData();
-    loadGuessesData();
-    loadPlayerData();
+    loadSavedData();
     loadGoogleAnalytics();
     amplitude.getInstance().logEvent('user-access');
   }, []);
@@ -86,14 +85,17 @@ function ClassicGame(props){
     }
   }
 
-  function loadGuessesData(){
-    const guessesData = localStorage.getItem("guessesInLocal");
-    if (guessesData === null) return undefined;
-    setGuesses(JSON.parse(guessesData));
-  }
-
-  function loadPlayerData(){
+  function loadSavedData(){    
     const playerData = localStorage.getItem("playerInLocal");
+    const guessesData = localStorage.getItem("guessesInLocal");
+
+    if(JSON.parse(playerData).lastTimeClassicPlayed != new Date().toJSON().slice(0, 10)){
+      clearGuesses();
+    }
+
+    if(guessesData !== null){
+      setGuesses(JSON.parse(guessesData));
+    }
 
     if(playerData !== null){
       setPlayer(JSON.parse(playerData));
