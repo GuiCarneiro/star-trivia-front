@@ -1,7 +1,7 @@
 /* Instruments */
 import styles from './styles/layout.module.scss'
 
-export default function RootLayout(props: React.PropsWithChildren) {
+export default function RootLayout(props) {
   return (
     <html lang="en">
       <body className={styles.backgroundHtml}>

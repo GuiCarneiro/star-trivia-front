@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import styles from './styles/index.module.scss';
 import ClassicGame from './components/ClassicGame.jsx';
 import Nav from './components/Nav.jsx';

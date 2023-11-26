@@ -89,7 +89,7 @@ function ClassicGame(props){
     const playerData = localStorage.getItem("playerInLocal");
     const guessesData = localStorage.getItem("guessesInLocal");
 
-    if(JSON.parse(playerData).lastTimeClassicPlayed != new Date().toJSON().slice(0, 10)){
+    if(playerData !== null && JSON.parse(playerData).lastTimeClassicPlayed != new Date().toJSON().slice(0, 10)){
       clearGuesses();
     }
 
